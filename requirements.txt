@@ -8,3 +8,4 @@ greenlet>=3.0.3
 sqlalchemy==2.0.20
 passlib[bcrypt]==1.7.4
 pydantic[email]>=2.5.1
+psycopg2-binary==2.9.7

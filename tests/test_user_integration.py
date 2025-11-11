@@ -11,7 +11,7 @@ engine = create_engine(DATABASE_URL)
 SessionLocal = sessionmaker(bind=engine)
 Base.metadata.create_all(bind=engine)
 
-client = TestClient(app_users)
+client = TestClient(app)
 
 def test_create_user_success():
     resp = client.post("/users", json={

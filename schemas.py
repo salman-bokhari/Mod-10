@@ -1,10 +1,11 @@
-from pydantic import BaseModel, EmailStr, Field
+from pydantic import BaseModel, EmailStr, Field, constr
 from datetime import datetime
 
 class UserCreate(BaseModel):
     username: str = Field(..., min_length=3, max_length=50)
     email: EmailStr
-    password: str = Field(..., min_length=6)
+    # Password truncated to 72 characters to satisfy bcrypt limitation
+    password: constr(min_length=6, max_length=72)
 
 class UserRead(BaseModel):
     id: int
@@ -12,5 +13,6 @@ class UserRead(BaseModel):
     email: EmailStr
     created_at: datetime
 
-    class Config:
-        orm_mode = True
+    model_config = {
+        "from_attributes": True  # Replaces orm_mode in Pydantic v2
+    }

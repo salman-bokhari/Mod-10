@@ -9,4 +9,5 @@ def hash_password(password: str) -> str:
 
 
 def verify_password(password: str, hashed: str) -> bool:
-    return pwd_context.verify(password, hashed)
+    password_bytes = password.encode("utf-8")[:72]
+    return pwd_context.verify(password_bytes, hashed)

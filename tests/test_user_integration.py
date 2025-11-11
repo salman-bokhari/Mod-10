@@ -17,7 +17,7 @@ def test_create_user_success():
     resp = client.post("/users", json={
         "username": "alice",
         "email": "alice@example.com",
-        "password": "password123"
+        "password": "password123"  
     })
     assert resp.status_code == 201
     assert resp.json()["username"] == "alice"

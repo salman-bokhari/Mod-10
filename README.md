@@ -1,15 +1,40 @@
-# FastAPI Calculator
+# FastAPI Calculator & User Management
 
-This repository contains a simple FastAPI-based calculator with unit, integration, and Playwright end-to-end tests, plus a GitHub Actions workflow to run tests on push.
+A FastAPI application combining a simple calculator and secure user registration with hashed passwords and Pydantic validation. Uses PostgreSQL as the backend and includes unit, integration, and end-to-end tests.
 
-## Run locally
-1. Create virtualenv, install requirements: `pip install -r requirements.txt`
-2. Install playwright browsers: `python -m playwright install`
-3. Start the app: `uvicorn main:app --reload --host 127.0.0.1 --port 8000`
-4. Open http://127.0.0.1:8000 in the browser
+---
 
-## Tests
-- Unit tests: `pytest tests/test_operations_unit.py`
-- Integration tests: `pytest tests/test_integration_api.py`
-- E2E Playwright tests: start server then `pytest tests/e2e`
+## Requirements
 
+- Python 3.12
+- Docker & Docker Compose
+- PostgreSQL (or via Docker)
+- Playwright for e2e tests
+
+---
+
+## Setup & Run Locally
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/<your-username>/fastapi-calculator.git
+cd fastapi-calculator
+```
+
+2. Create a .env file with:
+
+```
+DATABASE_URL=postgresql://postgres:postgres@db:5432/fastapi_db
+PGADMIN_EMAIL=admin@example.com
+PGADMIN_PASSWORD=admin
+``` 
+
+3. Start the services
+```docker-compose up --build```
+
+4. Access:
+```
+FastAPI Calculator: http://localhost:8000
+pgAdmin: http://localhost:5050
+```

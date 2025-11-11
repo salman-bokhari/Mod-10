@@ -40,3 +40,29 @@ docker-compose up --build
 FastAPI Calculator: http://localhost:8000
 pgAdmin: http://localhost:5050
 ```
+
+
+## Run Tests Locally
+
+1. Activate virtual environment:
+```
+python -m venv venv
+source venv/bin/activate  # Linux/macOS
+venv\Scripts\activate     # Windows
+```
+
+2. Install dependencies and Playwright:
+```
+pip install -r requirements.txt
+python -m playwright install chromium
+```
+
+3. Run all tests:
+```
+pytest -q
+```
+
+4. Run only end-to-end tests:
+```
+pytest -q tests/e2e -k playwright_e2e
+```

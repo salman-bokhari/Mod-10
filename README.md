@@ -66,3 +66,6 @@ pytest -q
 ```
 pytest -q tests/e2e -k playwright_e2e
 ```
+
+## Link to Dockerhub
+[Link to Repository on Dockerhub](https://hub.docker.com/repository/docker/salmanbokhari10/fastapi-module10/general)
